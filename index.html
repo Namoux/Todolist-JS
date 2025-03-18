@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📑 ZenTask</title>
+</head>
+<body>
+    <header>
+        <h1><i class="fa-solid fa-list-check"> ZenTask</i></h1>
+    </header>
+    <main>
+
+        <section class="search">
+            <div class="searchbar">
+                <input type="text" id="text" placeholder="Recherche...">
+                <a href="#"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></a>
+            </div>
+
+            <nav class="scrollTask">
+                <template class="post-template">
+                    <div class="task">
+                        <i id="chevron" class="fa-solid fa-chevron-down"></i>
+                        <div class="post-titre">
+                            <p>Titre de la tache</p>
+                        </div>
+                        <div class="BTN">
+                            <input type="checkbox" id="checkbox">
+                            <i id="delete" class="fa-solid fa-circle-xmark" style="color: #a51d2d;"></i>
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p>Description</p>
+                    </div>
+                </template>
+            </nav>
+ 
+            <form class="writeTask">
+                <div class="writeTitle">
+                    <input type="text" name="inputTitre" id="inputTitre" placeholder="Titre">
+                    <i class="fa-solid fa-circle-xmark" style="color: #a51d2d;"></i>
+                </div>
+                <div class="writeDescription">
+                    <textarea name="description" id="description" placeholder="Description..."></textarea>
+                </div>
+                <div class="BTNadd">
+                    <button type="submit">AJOUTER <i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></button>
+                </div>
+            </form>
+
+            <div class="addTask">
+                <a href="#"><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></a>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+<script type="module" src="main.js"></script>
+</html>
