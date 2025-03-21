@@ -93,7 +93,7 @@ h1 {
     cursor: pointer;
 }
 
-#checkbox{
+#mycheck{
     aspect-ratio: 1/1;
     width: 20px;
 }
@@ -118,6 +118,7 @@ h1 {
     left: 100%;
     translate: 1;
     transition: 0.7s;
+    /* z-index: 4; */
 }
 
 .writeTask.select {
@@ -181,4 +182,8 @@ h1 {
     height: 55vh;
     overflow: scroll;
     margin-top: 40px;
+}
+
+#chevron {
+    /* z-index: 3; */
 }
