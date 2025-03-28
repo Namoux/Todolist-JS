@@ -31,14 +31,47 @@ h1 {
     height: 30px;
     aspect-ratio: 8/1;
     border: none;
+    padding-left: 5%;
 }
 
-#text {
+#search {
     padding-left: 10px;
+}
+
+.searchbar button {
+    border: none;
+    background-color: transparent;
 }
 
 .searchbar i {
     font-size: 35px;
+    cursor: pointer;
+}
+
+.buttonreturn {
+    display: flex;
+    gap: 5%;
+    margin-top: 5%;
+}
+
+.buttonreturn i {
+    font-size: 1.8rem;
+}
+
+.buttonreturn button {
+    padding: 10px;
+    border-radius: 20px;
+    /* border: none; */
+    background-color: #98c4c1;
+    cursor: pointer;
+}
+
+#return {
+    visibility: hidden;
+}
+
+#return.appear {
+    visibility: visible;
 }
 
 .task {
@@ -52,7 +85,27 @@ h1 {
     padding: 10px 30px 10px 20px;
     box-shadow: 5px 5px 5px;
     overflow: hidden;
-    margin: 30px 15px 0px 0px;
+    margin: 25px 15px 0px 0px;
+    transition: 0.5s;
+}
+
+.task.finish {
+    opacity: 0.5; 
+}
+
+/* slide de la tache */
+.task.slide {
+    transform: translateX(-100%);
+}
+
+/* Rendre la tâche invisible */
+.task.fade-out {
+    visibility: hidden; 
+}
+
+/* Rendre la tâche visible */
+.task.fade-in {
+    visibility: visible; 
 }
 
 .task p {
@@ -63,15 +116,38 @@ h1 {
     display: none;
     border: 1px solid #204399;
     background-color: black;
-    opacity: 0.5;
+    /* opacity: 0.5; */
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     margin-right: 15px;
     box-shadow: 5px 5px 5px;
-    padding: 0px 0px 0px 20px;
+    padding: 0px 20px 0px 20px;
     color: white;
+    word-wrap: break-word;  /* Si le mot est trop long, on le coupe. */
+    transition: 0.5s;
 }
 
+.post-description.slide {
+    transform: translateX(-100%);
+}
+
+.post-description.fade-out {
+    opacity: 0; 
+}
+
+.post-description.fade-in {
+    opacity: 0.5; 
+}
+
+.date {
+    display: flex;
+    justify-content: end;
+}
+
+.date h2 {
+    margin: 0px;
+    font-size: 0.7rem;
+}
 .task.appear {
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -85,12 +161,23 @@ h1 {
 .BTN {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* width: 30px; */
+}
+
+#delete {
+    aspect-ratio: 1/1;
+    width: 10px;
 }
 
 .task i{
     font-size: 21px;
     margin: 7px;
     cursor: pointer;
+}
+
+#chevron {
+    aspect-ratio: 1/1;
+    width: 10px;
 }
 
 #mycheck{
@@ -109,7 +196,7 @@ h1 {
     font-size: 40px;
 }
 
-.writeTask{
+.writeTask {
     background: linear-gradient(#2aa9a1, #204399);
     height: 100vh;
     width: 100%;
@@ -118,7 +205,7 @@ h1 {
     left: 100%;
     translate: 1;
     transition: 0.7s;
-    /* z-index: 4; */
+    z-index: 3;
 }
 
 .writeTask.select {
@@ -143,6 +230,7 @@ h1 {
     left: 7%;
     margin-top: 20px;
 }
+
 .writeTitle input {
     width: 90%;
     padding-left: 20px;
@@ -157,12 +245,14 @@ h1 {
 
 .writeDescription textarea{
     margin-top: 30px;
-    width: 85%;
-    height: 60vh;
+    width: 80%;
+    min-height: 30vh;
+    height: auto;
     border-radius: 10px;
     position: relative;
     left: 7%;
-    padding-left: 10px;
+    right: 7%;
+    padding: 10px 10px 0px 10px;
 }
 
 .BTNadd button{
@@ -179,11 +269,104 @@ h1 {
 }
 
 .scrollTask{
-    height: 55vh;
+    height: 45vh;
     overflow: scroll;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
-#chevron {
-    /* z-index: 3; */
+.deleteAllTask {
+    font-size: 30px;
+    display: flex;
+    justify-content: end;
+
 }
+
+.deleteAllTask i {
+    cursor: pointer;
+}
+
+.ConfirmationDeleteALL {
+    background-color: rgb(103, 151, 210);
+    box-shadow: 5px 5px 5px;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    top: 33%;
+    left: 15%;
+    right: 15%;
+    z-index: 2;
+    display: none;
+}
+
+.ConfirmationDeleteALL button {
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: paleturquoise;
+    border-radius: 10px;
+}
+
+.BTNyesno {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
+
+.ConfirmationDeleteALL.appear {
+    display: block;
+}
+
+.NoTasktodelete {
+    background-color: rgb(103, 151, 210);
+    box-shadow: 5px 5px 5px;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    top: 33%;
+    left: 15%;
+    right: 15%;
+    z-index: 2;
+    display: none;
+}
+
+.NoTasktodelete button {
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: paleturquoise;
+    border-radius: 10px;
+}
+
+.NoTasktodelete.appear {
+    display: block;
+}
+
+.NoTask {
+    background-color: rgb(103, 151, 210);
+    box-shadow: 5px 5px 5px;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    top: 40%;
+    left: 15%;
+    right: 15%;
+    z-index: 1;
+    display: none;
+}
+
+.NoTask.appear {
+    display: block;
+}
+
+.NoTask.disappear {
+    display: none;
+}
+
+@media screen and (min-width: 1200px) { /* Tablettes et grand smartphones */
+
+@media screen and (min-width: 600px) { /* Petits smartphones */    

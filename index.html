@@ -14,11 +14,16 @@
     <main>
 
         <section class="search">
-            <div class="searchbar">
-                <input type="text" id="text" placeholder="Recherche...">
-                <a href="#"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></a>
+            <form class="searchbar">
+                <input type="text" id="rech" name="recherche" placeholder="Recherche d'une tâche...">
+                <button id="loupe" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+            </form>
+            <div class ="buttonreturn">
+                <button id="return"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="sortAZ"><i class="fa-solid fa-arrow-down-a-z"></i></button>
+                <button id="sort19"><i class="fa-solid fa-arrow-down-1-9"></i></button>
+                <button id="sort91"><i class="fa-solid fa-arrow-down-9-1"></i></button>
             </div>
-
             <nav class="scrollTask">
                 <template class="post-template">
                     <div class="task">
@@ -33,17 +38,18 @@
                     </div>
                     <div class="post-description">
                         <p>Description</p>
+                        <div class="date"><h2>date</h2></div>
                     </div>
                 </template>
             </nav>
  
             <form class="writeTask">
                 <div class="writeTitle">
-                    <input type="text" name="inputTitre" id="inputTitre" placeholder="Titre">
+                    <input maxlength="22" type="text" name="inputTitre" id="inputTitre" placeholder="Titre">
                     <i class="fa-solid fa-circle-xmark" style="color: #a51d2d;"></i>
                 </div>
                 <div class="writeDescription">
-                    <textarea name="description" id="description" placeholder="Description..."></textarea>
+                    <textarea maxlength="1000" name="description" id="description" placeholder="Description..."></textarea>
                 </div>
                 <div class="BTNadd">
                     <button type="submit">AJOUTER <i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></button>
@@ -52,6 +58,25 @@
 
             <div class="addTask">
                 <a href="#"><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></a>
+            </div>
+            <div class="deleteAllTask">
+                <i class="fa-regular fa-trash-can" style="color: #ffffff;"></i>
+            </div>
+            <div class="ConfirmationDeleteALL">
+
+                    <p>Voulez-vous vraiment supprimer toutes vos tâches?</p>
+                    <div class="BTNyesno">
+                        <button class="oui" type="submit">Oui</button>
+                        <button class="non">Non</button>
+                    </div>
+                </div>
+            <div class="NoTasktodelete">
+                <p>Eh oh!! Il n'y a aucune tâche!</p>
+                <button class="close">Fermer</button>
+            </div>
+            <div class="NoTask">
+                <p>Il n'y a pas encore de tâche, en ajouter? </p>
+                <h2>⬇️</h2>
             </div>
 
         </section>
